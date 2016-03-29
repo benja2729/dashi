@@ -1,0 +1,51 @@
+
+[ glyphs ]
+  # Powerline glyphs
+  git_branch:        \uE0A0
+  ln_glyph:          \uE0A1
+  padlock:           \uE0A2
+  carat_right_full:  \uE0B0
+  carat_right:       \uE0B1
+  carat_left_full:   \uE0B2
+  carat_left:        \uE0B3
+
+  # Additional glyphs
+  detached:          \u27A6
+  space:             \x20
+
+[ colors ]
+  lt_green:   addc10
+  med_green:  189303
+  dk_green:   0c4801
+
+  lt_red:     C99
+  med_red:    ce000f
+  dk_red:     600
+  ruby_red:   af0000
+
+  slate_blue: 255e87
+  med_blue:   005faf
+
+  lt_orange:  f6b117
+  dk_orange:  3a2a03
+
+  dk_grey:    333
+  med_grey:   999
+  lt_grey:    ccc
+
+  dk_brown:   4d2600
+  med_brown:  803F00
+  lt_brown:   BF5E00
+
+[ fish_prompt ]
+  set_color -b dk_grey med_grey
+  " {{test prompt_git_root}} {{?glyph carat_right}}"
+  "{{?set_color -o}} {{?__fish_git_prompt (dashi.glyph git_branch)' %s'}}"
+  " {{?set_color -b normal dk_grey}}{{?glyph carat_right_full}}"
+  # __bobthefish.prompt_vi
+  # __bobthefish.prompt_version_control
+  # __bobthefish.prompt_dir
+  # __bobthefish.finish_segments
+
+[ fish_prompt_right ]
+  to be continued...

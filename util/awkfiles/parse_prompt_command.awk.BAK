@@ -1,0 +1,27 @@
+
+function eval(method) {
+  fishargs = sprintf("fish -c 'dashi.%s'", method)
+  fishargs | getline result
+  close(fishargs)
+  return result
+}
+
+/^ *["']/ {
+  template = gensub( /^["']([^'"]+)["']/, "\\1", 1, $0)
+
+  split(gensub( /{{([^{}]+)}}/, "\\1|", "g", template), methods, "|")
+  delete methods[-1]
+
+  for(idx in methods) {
+    method = methods[idx]
+    sub( / */, "", method)
+    if (length(method) == 0) {
+      continue
+    }
+    printf(eval(method))
+  }
+}
+
+/^ *\w/ {
+  printf(eval($1))
+}
